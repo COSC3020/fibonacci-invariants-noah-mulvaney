@@ -5,7 +5,7 @@
 function fibr(n, arr) {
     if (n < 2) {
         arr[0] = 0;
-        arr[1] = 1;
+        if (n == 1) arr[1] = 1;
         return n;
     }
     
