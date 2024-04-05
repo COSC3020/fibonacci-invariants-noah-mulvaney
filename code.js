@@ -8,7 +8,7 @@ function fibr(n, arr) {
         return 0;
     }
     
-    if (n <= 2) {
+    if (n <= 1) {
         arr[n] = 1;
         return 1;
     }
@@ -18,10 +18,12 @@ function fibr(n, arr) {
 }
 
 function fib(n) {
-    return fibr(n, []);
+    let arr = [0];
+    fibr(n, arr);
+    return arr;
 }
 
-/* Debug Code
+/* Debug code
 for (let i = 0; i < 10; ++i)
     console.log(fib(i));
 */
