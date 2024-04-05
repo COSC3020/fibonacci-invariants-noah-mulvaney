@@ -3,14 +3,10 @@
 // 5 Apr 2024
 
 function fibr(n, arr) {
-    if (n <= 0) {
+    if (n < 2) {
         arr[0] = 0;
-        return 0;
-    }
-    
-    if (n <= 1) {
-        arr[n] = 1;
-        return 1;
+        arr[1] = 1;
+        return n;
     }
     
     arr[n] = fibr(n - 1, arr) + fibr(n - 2, arr);
@@ -18,7 +14,7 @@ function fibr(n, arr) {
 }
 
 function fib(n) {
-    let arr = [0];
+    let arr = [];
     fibr(n, arr);
     return arr;
 }
