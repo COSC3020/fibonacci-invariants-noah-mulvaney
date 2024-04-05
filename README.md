@@ -21,10 +21,4 @@ testing code that uses [jsverify](https://jsverify.github.io/) in
 What is a good invariant for your recursive implementation of `fib()`
 i.e. something that is always true at the beginning of the recursive call?
 
-Hint: Think about what the "state of the world" is here and what you can say
-about it at the start of each recursive call. Your invariant must say something
-about the current recursive call.
-
-Describe your reasoning and the conclusion you've come to. Your reasoning is the
-most important part. You do not need to prove that the invariant is correct. Add
-your answer to this markdown file.
+At the beginning of `fibr(n, arr)`, the value of `n` is always less than the `n` of the parent function call (i.e. the function call, a level of recursion above, which called itself). Since `n` is decreasing with each recursive call and our terminating base case is `n < 2`, this proves the function will terminate. Until the call of `fibr()` with `n < 2`, the `arr` will be empty. Once, the base case begins filling in the list and "trickles up" through the chain of recursive calls.
