@@ -1,3 +1,4 @@
+[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-24ddc0f5d75046c5622901739e7c5dd533143b0c8e959d652212380cedb1ea36.svg)](https://classroom.github.com/a/rzkZS2Jf)
 # Fibonacci Invariants
 
 Recall the definition of the Fibonacci series: the first number is 0, the second
@@ -20,10 +21,6 @@ testing code that uses [jsverify](https://jsverify.github.io/) in
 What is a good invariant for your recursive implementation of `fib()`
 i.e. something that is always true at the beginning of the recursive call?
 
-Hint: Think about what the "state of the world" is here and what you can say
-about it at the start of each recursive call. Your invariant must say something
-about the current recursive call.
+At the beginning of `fibr(n, arr)`, the value of `n` is always less than the `n` of the parent function call (i.e. the function call, a level of recursion above, which called itself). Since `n` is decreasing with each recursive call and our terminating base case is `n < 2`, this helps proves the function will terminate. 
 
-Describe your reasoning and the conclusion you've come to. Your reasoning is the
-most important part. You do not need to prove that the invariant is correct. Add
-your answer to this markdown file.
+Additionally, in each recursive call, the algorithm will input the sum of the previous two array elements in the correct location in the array. This is the recursive invariant which helps inductively prove the correctness of the implmentation. At each recursive call, `fib[n] = fib[n - 1] + fib [n - 2]` or the base cases are used to insert the nessecary values. Until the call of `fibr()` with `n < 2`, the `arr` will be empty. Once, the base case begins filling in the list and "trickles up" through the chain of recursive calls. Because the base case values are correct, and no other values can be calculated and placed in the array until those values have been entered, this helps prove the correctness of the algorithm. Each value is calculated using the previous two values in the array, which are guarenteed to be defined when computed and is a correct Fibonacci number and appears in the correct position. This can be proved using the base case and inductive reasoning to demonstrate the correctness of the algorithm.
